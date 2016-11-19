@@ -1,0 +1,5 @@
+<% @category.posts.each do |post| %>
+<%= link_to post.name, post%>
+ link_to link_posts_path(@post), method: :put,  do
+%span.glyphicon.glyphic
+<% end %>

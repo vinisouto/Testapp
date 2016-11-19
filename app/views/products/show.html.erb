@@ -1,0 +1,29 @@
+
+
+<div class="container">
+ <div class="row">
+      <div class="col-xs-12 col-md-6">
+
+
+ <%= image_tag(@products.image.url(:medium)) %>
+ <h1><%= @products.description %></h1>
+ <p><%= @products.price %></p>
+<h2><%= @products.name %></h2>
+<%= link_to 'show', action: 'show', id: product_path %>
+
+</div>
+</div>
+</div>
+
+
+<%= form_for @comments do |f| %>
+
+
+  <%= f.hidden_field :comments_id, value: @products.id %>
+
+  <%= f.label :coment %><br />
+  <%= f.text_area :content %>
+
+  <%= f.submit %>
+<% end %>
+

@@ -1,0 +1,32 @@
+
+<div class="jumbotron">
+<h1> Your Favoutite products Review </h1>
+<p> Hashtag hoi selfies. </p>
+<p><%= link_to "sign up to write a comments", new_user_registration_path, class:"btn" %> </p>
+</div>
+
+
+
+<!--  each link_to show  -->
+
+ <div class="row">
+  <% @products.each do |x| %>
+  <div class=col-sm-6 col-md-3></div>
+ <%= image_tag x.image.url(:medium) %>
+ <%= x.description %>
+ <%= x.name %>
+ <%= x.price%>
+
+ <%= link_to "show", products_path %>
+ <% end %>
+ </div>
+
+
+ <br>
+
+
+
+ <%= link_to "show", products_path %>
+
+
+

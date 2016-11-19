@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+
+    <title>InstagramApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+ </head>
+<body>
+
+ <div class="navbar-app">
+  <!-- Logo -->
+  <%= link_to root_path, class: "navbar-logo" do %>
+
+  <% end %>
+
+
+    <div id="wrapper">
+    <div class="container">
+    <div class="navbar-header">
+
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+
+ <%= link_to "New Post", new_post_path %>
+
+     <% if if user_signed_in?   %>
+
+      <%= link_to "logout", destroy_user_session_path, method: :delete %>
+      <%= link_to current_user.email, edit_user_registration_path %>
+      <%= link_to "New Products", new_product_path   %>
+     <% else %>
+
+     <%= link_to "Login", new_user_session_path %>
+
+      <%= link_to "Register", new_user_registration_path %>
+
+      <%= link_to "New Products", new_product_path   %>
+
+    <%= link_to 'products', products_path, class: "app-products" %>
+
+      <%= link_to "instagram", root_url, class: "navbar-brand" %>
+      <!--  #can be logo -->
+<% end %>
+
+ </div>
+  </div>
+  </div>
+</div>
+     <% end %>
+
+
+
+
+</li>
+</body>
+
+   <% flash.each do |a, b| %>
+   < div class="alert sucess"> <%= b %> </div>
+   <% end %>
+
+    <%= yield %>
+  </html>

@@ -1,0 +1,33 @@
+
+
+<%= @post.description %>
+<%= image_tag(@post.image.url(:medium)) %>
+<%= @post.user.email %>
+
+
+
+<%= form_for ([Comment.new ]) do |f| %>
+  <%= f.hidden_field :comments_id, value: @posts_id %>
+
+  <%= f.label :coment %>
+  <%= f.text_area :content %>
+
+  <%= f.submit %>
+<% end %>
+
+
+<%= @comments.each do |comment| %>
+
+<h2><%= link_to comment.content, post_comments_path(post) %></h2>
+
+<% end %>
+
+
+
+  <%= link_to like_post_path(@post), method: :put, class:"btn btn-default" do %>
+
+ <i class="glyphicon glyphicon-heart"></i>
+  <%= @post.get_upvotes.size  %>
+
+<% end %>
+

@@ -1,0 +1,13 @@
+<%= form_for([@post, @comments ]) do |f| %>
+
+ <%= f.label :content %>
+ <%= f.text_area  :content  %>
+ <%= f.submit %>
+
+<% end %>
+</form>
+
+
+
+
+<%= link_to 'Back', comments_path %>

@@ -1,0 +1,32 @@
+<div class="text-center"><h2>New Products</h2>
+
+
+<%= form_for @product do |f| %>
+<div class="form-inputs">
+ <ul>
+ <li>
+ <div class="box-form">
+<%= f.label  :description  %>
+<div class="text-area">
+<%= f.text_area  :description  %>
+</li>
+<li>
+<%= f.label  :price  %>
+<%= f.text_area  :price  %>
+<li>
+<%= f.label  :name   %>
+<%= f.text_area  :name %>
+</li>
+<li>
+<%= f.label :image   %>
+ <%= f.file_field  :image %>
+</li>
+<br>
+<%= f.submit %>
+<% end %>
+</div>
+</div>
+</div>
+
+</div>
+
